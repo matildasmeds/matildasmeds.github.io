@@ -4,81 +4,94 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="Personal homepage">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
     body {
-        font-size: 1.2em;
-        font-family: "Tahoma";
+        background-color: black;
     }
-    .square {
-        height: 15em;
-        width: 15%;
-        padding: 0.4em;
-        margin: 0.2em 0 0.2em 0;
-        border: solid 1px;
+    .container {
+        width: 66%;
+        max-width: 24em;
+        margin: auto;
+        padding: 5%;
+        display: block;
+
+        text-align: center;
+    }
+    h1 {
+        width: 83%;
+        margin: auto;
+
+        color: white;
+        font: 280% Sans-Serif;
+        font-weight: 100;
+    }
+    hr {
+        height: 2.3em;
+        width: 100%;
+        margin: 0.625em;
+    }
+    hr.hr-first {
+        border-top: 0.8em dotted aquamarine;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0.8em dotted skyblue;
+    }
+    hr.hr-last {
+        border: 0;
+        border-top: 0.8em dotted peru;
+    }
+    .links {
+        width: 80%;
+        margin: auto;
+        display: flex-grid;
+    }
+    .link-cell {
+        width: 30%;
         display: table-cell;
     }
-    h3 {
-        margin-top: 0.2em;
+    .link {
+        height: 2.8em;
+        width: 2.8em;
+        display: inline-block;
+
+        color: white;
+        line-height: 3em;
+        font-size: 200%;
+        text-align: center;
+
+        border: solid 0.12em white;
+        border-radius: 50%;
     }
-    container {
-        width: 100%;
-        display: flexgrid;
+    .link.link-first {
+        color: peru;
+        border-color: peru;
     }
-    .square-contents {
-        height: 100%;
+    .link.link-middle {
+        color: skyblue;
+        border-color: skyblue;
     }
-    .square-color-1 {
-        background-color: hotpink;
-    }
-    .square-color-2 {
-        background-color: orange;
-    }
-    .square-color-3 {
-        background-color: springgreen;
-    }
-    .square-color-4 {
-        background-color: steelblue;
-    }
-    .square-color-5 {
-        background-color: gray;
+    .link.link-last {
+        color: aquamarine;
+        border-color: aquamarine;
     }
     </style>
 </head>
 <body>
   <div class="container">
-    <div class="square square-color-1">
-      <div class="square-contents">
-        <h3>What?</h3>
-        <p>A fresh attempt at a personal website. For now it's a static collection of links.</p>
-        <p>There are always more ideas than time.</p>
-        <p>I know it's not perfect :D </p>
-      </div>
-    </div>
-    <div class="square square-color-2">
-      <div class="square-contents">
-        <h3>Twitter</h3>
-        <p>Occasional tweets and direct messaging.</p>
-        <p>I like Twitter. It's light-weight, low-treshold, condensed, somewhat topical.</p>
-      </div>
-    </div>
-    <div class="square square-color-3">
-      <div class="square-contents">
-        <h3>LinkedIn</h3>
-        <p>Resumé & Professional Networking</p>
-        <p>Do send an invitation, especially if we know in person, or might have common interests.</p>
-      </div>
-    </div>
-    <div class="square square-color-5">
-      <div class="square-contents">
-        <h3>Aava Software</h3>
-        <p>Where I write tailored enterprise software. I started with the Ruby on Rails backend, and now work full-stack.</p>
-      </div>
-    </div>
-    <div class="square square-color-4">
-      <div class="square-contents">
-        <h3>GitHub</h3>
-        <p>Toy projects, for fun and practice.</p>
-      </div>
+    <h1>Matilda Smeds</h1>
+    <hr class="hr-first">
+    <hr class="hr-last">
+      <div class="links">
+        <div class="link-cell">
+          <div class="link link-first"><i class="fa fa-github"></i></div>
+        </div>
+        <div class="link-cell">
+          <div class="link link-middle"><i class="fa fa-linkedin"></i></div>
+        </div>
+        <div class="link-cell">
+          <div class="link link-last"><i class="fa fa-twitter"></i></div>
+        </div>
     </div>
   </div>
 </body>
