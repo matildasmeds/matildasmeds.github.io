@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
     body {
-        background-color: turquoise;
+        background-color: lightseagreen;
+        color: white;
+        font-family: Sans-serif;
+        font-size: 120%;
     }
     .container {
         width: 66%;
@@ -16,34 +19,25 @@
         padding: 5%;
         display: block;
 
-        text-align: center;
+        text-align: left;
     }
     h1 {
-        width: 83%;
-        margin: 5% auto 0.5em auto;
+        width: 90%;
+        margin: 0.5em auto 0.2em auto;
 
-        color: white;
-        font: 280% Sans-Serif;
+        color: aquamarine;
+        font: 400% Sans-serif;
         font-weight: 100;
     }
-    hr {
-        height: 2.3em;
+    ul {
         width: 90%;
-        margin: 0.625em auto 0.625em auto;
-    }
-    hr.hr-first {
-        border-top: 0.8em dotted aquamarine;
-        border-left: 0;
-        border-right: 0;
-        border-bottom: 0.8em dotted mediumslateblue;
-    }
-    hr.hr-last {
-        border: 0;
-        border-top: 0.8em dotted peru;
+        margin: auto;
+        text-align: left;
     }
     .links {
-        width: 80%;
+        width: 90%;
         margin: auto;
+        margin-top: 1em;
         display: flex-grid;
     }
     .link-cell {
@@ -51,47 +45,47 @@
         display: table-cell;
     }
     .link {
-        height: 2.8em;
-        width: 2.8em;
+        height: 2.4em;
+        width: 2.4em;
         display: inline-block;
 
         color: white;
-        line-height: 3em;
+        line-height: 2.6em;
         font-size: 200%;
         text-align: center;
 
-        border: solid 0.12em white;
+        border: solid 0.11em white;
         border-radius: 50%;
     }
-    .link.link-first {
-        color: peru;
-        border-color: peru;
-    }
-    .link.link-middle {
-        color: mediumslateblue;
-        border-color: mediumslateblue;
-    }
-    .link.link-last {
-        color: aquamarine;
-        border-color: aquamarine;
+    a:hover {
+      color: aquamarine;
+      border-color: aquamarine;
     }
     </style>
 </head>
 <body>
   <div class="container">
     <h1>Matilda Smeds</h1>
-    <hr class="hr-first">
-    <hr class="hr-last">
+    <ul>
+      <li>Writes web applications for a living</li>
+      <li>Loves to learn all sorts of things</li>
+    </ul>
       <div class="links">
         <div class="link-cell">
-          <div class="link link-first"><i class="fa fa-github"></i></div>
+          <a href="https://github.com/matildasmeds/" class="link link-first">
+            <i class="fa fa-github"></i>
+          </a>
         </div>
         <div class="link-cell">
-          <div class="link link-middle"><i class="fa fa-linkedin"></i></div>
+          <a href="https://www.linkedin.com/in/matildasmeds/" class="link link-middle">
+            <i class="fa fa-linkedin"></i>
+          </a>
         </div>
         <div class="link-cell">
-          <div class="link link-last"><i class="fa fa-twitter"></i></div>
-        </div>
+          <a href="https://twitter.com/matildasmeds" class="link link-last">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </h>
     </div>
   </div>
 </body>
