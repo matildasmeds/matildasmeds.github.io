@@ -13,13 +13,19 @@
         font-size: 120%;
     }
     .container {
-        width: 66%;
-        max-width: 24em;
         margin: auto;
         padding: 5%;
         display: block;
-
         text-align: left;
+    }
+    .container.responsive-width {
+        width: 66%;
+        max-width: 24em;
+    }
+    @media screen and (max-width: 480px) {
+        .container.responsive-width {
+            width: 100%;
+        }
     }
     h1 {
         width: 90%;
@@ -64,7 +70,7 @@
     </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container responsive-width">
     <h1>Matilda Smeds</h1>
     <ul>
       <li>Writes web applications for a living</li>
