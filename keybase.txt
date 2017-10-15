@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/matildasmeds
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://matildasmeds.com
+  * I am matildasmeds (https://keybase.io/matildasmeds) on keybase.
+  * I have a public key ASCdEnkBCZvIlE80ncT9jXsMj2_T3_w9MMbEp-ipJK5JeAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209d127901099bc8944f349dc4fd8d7b0c8f6fd3dffc3d30c6c4a7e8a924ae49780a",
+      "host": "keybase.io",
+      "kid": "01209d127901099bc8944f349dc4fd8d7b0c8f6fd3dffc3d30c6c4a7e8a924ae49780a",
+      "uid": "68f65303a84dd85e7cfe3f7275323b19",
+      "username": "matildasmeds"
+    },
+    "merkle_root": {
+      "ctime": 1508057960,
+      "hash": "272b306ef9fbcd8b9ce32fb184d6e352aa602d6cbf43fce316cb74aeee541fc0fe06134ea3e45c2bf56e297959effc0190d3a1be4fea63aa8d075fba94cf3293",
+      "hash_meta": "300e3a70c704e458a66d2afd45c20f20de5ab04838fb2067749dab28d7110850",
+      "seqno": 1580273
+    },
+    "service": {
+      "hostname": "matildasmeds.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1508057974,
+  "expire_in": 504576000,
+  "prev": "fd02af97685c4f9d992e7ea848174bb32588a512eead677b7a674a9adca0e398",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgnRJ5AQmbyJRPNJ3E/Y17DI9v09/8PTDGxKfoqSSuSXgKp3BheWxvYWTFA0t7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwOWQxMjc5MDEwOTliYzg5NDRmMzQ5ZGM0ZmQ4ZDdiMGM4ZjZmZDNkZmZjM2QzMGM2YzRhN2U4YTkyNGFlNDk3ODBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOWQxMjc5MDEwOTliYzg5NDRmMzQ5ZGM0ZmQ4ZDdiMGM4ZjZmZDNkZmZjM2QzMGM2YzRhN2U4YTkyNGFlNDk3ODBhIiwidWlkIjoiNjhmNjUzMDNhODRkZDg1ZTdjZmUzZjcyNzUzMjNiMTkiLCJ1c2VybmFtZSI6Im1hdGlsZGFzbWVkcyJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwODA1Nzk2MCwiaGFzaCI6IjI3MmIzMDZlZjlmYmNkOGI5Y2UzMmZiMTg0ZDZlMzUyYWE2MDJkNmNiZjQzZmNlMzE2Y2I3NGFlZWU1NDFmYzBmZTA2MTM0ZWEzZTQ1YzJiZjU2ZTI5Nzk1OWVmZmMwMTkwZDNhMWJlNGZlYTYzYWE4ZDA3NWZiYTk0Y2YzMjkzIiwiaGFzaF9tZXRhIjoiMzAwZTNhNzBjNzA0ZTQ1OGE2NmQyYWZkNDVjMjBmMjBkZTVhYjA0ODM4ZmIyMDY3NzQ5ZGFiMjhkNzExMDg1MCIsInNlcW5vIjoxNTgwMjczfSwic2VydmljZSI6eyJob3N0bmFtZSI6Im1hdGlsZGFzbWVkcy5jb20iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjMzIn0sImN0aW1lIjoxNTA4MDU3OTc0LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6ImZkMDJhZjk3Njg1YzRmOWQ5OTJlN2VhODQ4MTc0YmIzMjU4OGE1MTJlZWFkNjc3YjdhNjc0YTlhZGNhMGUzOTgiLCJzZXFubyI6NiwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEBnwFqCe2vy6hBGvRauISy8dEVez6TiBLLlDQkigdPENxMeJ9KUvgu9QRWWUNiQtX9Qk3n0XNio1kqKOEkFSQoFqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgQ9XCeRpx6pvVzKDmG1mwnGJUd7G7R4uXGHAR4sTXBLyjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/matildasmeds
+
+==================================================================
