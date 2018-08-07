@@ -45,11 +45,12 @@
         width: 90%;
         margin: auto;
         margin-top: 1em;
-        display: flex-grid;
+        display: flex;
+        flex-wrap: wrap;
     }
     .link-cell {
-        width: 30%;
-        display: table-cell;
+        margin-right: 0.4em;
+        margin-top: 0.4em;
     }
     .link {
         height: 2.2em;
@@ -78,34 +79,27 @@
 <body>
   <div class="container responsive-width">
     <h1>Hi! 👋</h1>
-    <p>My name is Matilda Smeds, and I'm a software developer.</p>
-    <p>I tend towards a polyglot approach, making small experiments
-      and treating others with respect. Simple wins over the complex.</p>
-    <!-- These lists indeed I would like to have
-    <p>Here are some specific lists of interest:</p>
-    <ul>
-      <li>Awesome and free learning resources</li>
-      <li>Select technologies I have worked with</li>
-      <li>Select projects</li>
-    </ul>-->
-    <p>I currently work with a highly customizable ERP product on
-      backend and front-end at
-      <a href="http://www.aavasoftware.com">Aava Software</a>.
-    </p>
-    <!-- I should probably add an email-button too -->
+    <p>My name is Matilda Smeds, and I am an experienced full-stack developer.</p>
+    <p>At work I write Ruby and JavaScript, and in my freetime I have fiddled with Rust, Python and Java. I currently work at <a href="http://www.aavasoftware.com">Aava Software</a>, with a highly customizable ERP product.</p>
+    <p>You can reach me by email, using my gmail.com or protonmail.com accounts (firstname.lastname@...), or send me a message on <a href="https://www.linkedin.com/in/matildasmeds/">LinkedIn</a> or <a href="https://twitter.com/matildasmeds">Twitter</a>.</p>
     <div class="links">
       <div class="link-cell">
-        <a href="https://github.com/matildasmeds/" class="link link-first">
+        <a href="https://github.com/matildasmeds/" class="link" title="GitHub">
           <i class="fa fa-github"></i>
         </a>
       </div>
       <div class="link-cell">
-        <a href="https://www.linkedin.com/in/matildasmeds/" class="link link-middle">
+        <a href="https://www.linkedin.com/in/matildasmeds/" class="link" title="LinkedIn">
           <i class="fa fa-linkedin"></i>
         </a>
       </div>
       <div class="link-cell">
-        <a href="https://twitter.com/matildasmeds" class="link link-last">
+        <a href="https://stackoverflow.com/users/3994927/matilda-smeds" class="link" title="stack overflow">
+          <i class="fa fa-stack-overflow"></i>
+        </a>
+      </div>
+      <div class="link-cell">
+        <a href="https://twitter.com/matildasmeds" class="link" title= "Twitter">
           <i class="fa fa-twitter"></i>
         </a>
       </div>
