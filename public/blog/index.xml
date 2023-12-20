@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blogs on </title>
+    <link>https://www.matildasmeds.com/blog/</link>
+    <description>Recent content in Blogs on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Matilda Smeds</copyright>
+    <lastBuildDate>Sun, 03 Dec 2023 14:59:51 +0100</lastBuildDate><atom:link href="https://www.matildasmeds.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>https://www.matildasmeds.com/blog/hello-world/</link>
+      <pubDate>Sun, 03 Dec 2023 14:59:51 +0100</pubDate>
+      
+      <guid>https://www.matildasmeds.com/blog/hello-world/</guid>
+      <description>Subscribe to the RSS or come back later to get more updates!</description>
+      <content:encoded><![CDATA[<p>Subscribe to the RSS or come back later to get more updates!</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
