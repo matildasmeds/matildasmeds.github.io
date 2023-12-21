@@ -1,0 +1,25 @@
+baseUrl = "https://www.matildasmeds.com"
+Url = "https://www.matildasmeds.com"
+theme = "hugo-bearcub"
+copyright = "Matilda Smeds"
+contentDir = "content"
+name = "Matilda's Homepage"
+
+[author]
+  name = "Matilda Smeds"
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
+
+
+[params]
+  description = "Matilda's Homepage"
+  title = "www.matildasmeds.com"
+  dateFormat="2006-01-02"
+  generateSocialCard = false
+  license = "[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)"
+  
+
