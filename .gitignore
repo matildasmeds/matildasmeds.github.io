@@ -1,0 +1,4 @@
+.obsidian
+.hugo_build.lock
+/blog/.obsidian
+/content/.obsidian
