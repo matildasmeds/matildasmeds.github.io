@@ -23,14 +23,16 @@ h5,
 h6,
 strong,
 b,
-a
 {
-  color: #BA9285;
+  color: #9575CD;
+}
+
+a {
+  color: #6e40bf;
 }
 
 a {
   font-family: 'Raleway', sans-serif;
-  text-transform: capitalize;
 }
 
 h1, h2, h3, h4, h5, h6 {

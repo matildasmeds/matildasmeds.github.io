@@ -34,7 +34,7 @@ In the first iteration you will find a couple of posts about Rust and software d
 <!-- TODO: Setup the contact form here -->
 
 # Also me
-These are some accounts that I have. Might be useful for some use cases.
+These are some of my user accounts online.
 
 - [LinkedIn](https://www.linkedin.com/in/matildasmeds/)
 -- My educational & work history, occasional posts & updates. 
