@@ -1,7 +1,7 @@
 +++
 title = 'My logging recipe for server side Rust'
 date = 2024-04-11T21:15:09+02:00
-draft = true
+draft = false
 +++
 
 **In this article I share my go-to recipe for logging server side Rust. We also discuss logging and what makes it useful.**
