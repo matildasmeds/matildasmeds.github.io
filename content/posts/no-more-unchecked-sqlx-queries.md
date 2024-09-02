@@ -5,8 +5,6 @@ date = 2024-09-02T22:20:00+02:00
 
 This post is intended for SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. Most of the examples are written for Postgres, but can be applied to other relational databases as well. I've added one example for MySQL in that vein.
 
-First we look into what are the differences between a checked and an unchecked queries, and the reasons to prefer checked queries. Then we cover two cases where we might feel tempted to write an unchecked query, but fortunately, won't have to.
-
 ## Introduction
 
 The Rust compiler can catch many mistakes, preventing bugs from happening at the runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
@@ -15,13 +13,15 @@ As this high level of robustness comes from compile time checks, Rust feels comp
 
 With this post, I hope to offer a useful reference, for how to avoid writing unchecked queries in the first place, and of course, how to refactor existing unchecked queries into checked ones. Different flavours of unchecked and checked queries alike are presented, so that the reader can see the practical differences, and keep refining their craft.
 
+First we look into what are the differences between a checked and an unchecked queries, and the reasons to prefer checked queries. Then we cover two cases where we might feel tempted to write an unchecked query, but fortunately, won't have to.
+
 ### What are these checked SQLx queries?
 
 [SQLx](https://docs.rs/sqlx/latest/sqlx/index.html) is a popular and full-fledged crate for interacting with relational databases. It supports PostgreSQL, MySQL and SQLite. While there are several other crates available, SQLx is a pretty safe pick, unless you want support for [ORMs](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which SQLx does not provide. In that case you may want to look into [diesel](https://docs.rs/diesel/latest/diesel/).
 
 One of my favorite things about SQLx are the compilation time checks. SQLx crate provides quite nice checks for our queries, if we only use that feature.
 
-#### Checked query vs. unchecked query
+### Checked query vs. unchecked query
 
 A checked query is a query that can be statically validated at compile time. SQLx compares column and table names to the database schema, validates the syntax, and verifies data types without running any code.
 
