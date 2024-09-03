@@ -161,7 +161,7 @@ let ids = sqlx::query_as!(
  
 Pretty neat! A checked query, that supports different variants. As `None` evaluates to `NULL`, we conveniently omit the condition for that parameter, when the `Option` is `None`. Postgres requires explicit type casting in this case, which is why we use the `::` type cast operator, as seen above.
 
-The same idea should work with MySQL as well, adjusting the syntax slightly. MySQL uses ? as parameter placeholder markers, so the query would look like so. The casts are explicit, unlike in Postgres.
+The same idea should work with MySQL as well, adjusting the syntax slightly. MySQL uses ? as parameter placeholder markers, so the query would look like so. The casts are implicit, unlike in Postgres.
 
 ```sql
 // MySQL version
