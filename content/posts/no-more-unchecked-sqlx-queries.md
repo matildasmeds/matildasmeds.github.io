@@ -3,10 +3,6 @@ title = 'No More Unchecked Sqlx Queries'
 date = 2024-09-02T22:20:00+02:00
 +++
 
-This post is intended for SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. Most of the examples are written for Postgres, but can be applied to other relational databases as well. I've added one example for MySQL in that vein.
-
-## Introduction
-
 The Rust compiler can catch many mistakes, preventing bugs from happening at the runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
 
 As this high level of robustness comes from compile time checks, Rust feels comparatively a bit more brittle at the edges. There may be limitations to compiler checks, when dealing with external data sources like databases and JSON from third party APIs.
@@ -15,13 +11,13 @@ With this post, I hope to offer a useful reference, for how to avoid writing unc
 
 First we look into what are the differences between a checked and an unchecked queries, and the reasons to prefer checked queries. Then we cover two cases where we might feel tempted to write an unchecked query, but fortunately, won't have to.
 
-### What are these checked SQLx queries?
+## What are checked SQLx queries?
 
 [SQLx](https://docs.rs/sqlx/latest/sqlx/index.html) is a popular and full-fledged crate for interacting with relational databases. It supports PostgreSQL, MySQL and SQLite. While there are several other crates available, SQLx is a pretty safe pick, unless you want support for [ORMs](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which SQLx does not provide. In that case you may want to look into [diesel](https://docs.rs/diesel/latest/diesel/).
 
 One of my favorite things about SQLx are the compilation time checks. SQLx crate provides quite nice checks for our queries, if we only use that feature.
 
-### Checked query vs. unchecked query
+## Checked query vs. unchecked query
 
 A checked query is a query that can be statically validated at compile time. SQLx compares column and table names to the database schema, validates the syntax, and verifies data types without running any code.
 
@@ -29,7 +25,7 @@ An unchecked query has no guarantees at all. It could contain any number of typo
 
 I think unchecked queries are a bad practice, to put in bluntly. With unchecked queries, we give up all guarantees on the correctness of the query. Also, as this blog post aims to show, they can be avoided altogether.
 
-### Why care about unchecked queries?
+## Why care about unchecked queries?
 
 If you have a test DB, and run all the queries against it, fine, your test suite will catch the issue. But what if you don't? Then, checked queries will save your day. And even if you do, they'll save you some time anyway, because you'll get corrective feedback already at compile time, just as we Rust developers like it.
 
@@ -37,7 +33,7 @@ After all, an unchecked SQL query is just a string, from the compiler's perspect
 
 The power of Rust lies in compiler checks (or at least a decent share), so let's keep our queries checked!
 
-### How to recognize unchecked queries in the wild?
+## How to recognize unchecked queries in the wild?
 
 As a general rule, queries created using the [sqlx::query()](https://docs.rs/sqlx/latest/sqlx/fn.query.html) and [sqlx::query_as()](https://docs.rs/sqlx/latest/sqlx/fn.query_as.html) functions are unchecked, while those created with the macros [sqlx::query!](https://docs.rs/sqlx/latest/sqlx/macro.query.html) and [sqlx::query_as!](https://docs.rs/sqlx/latest/sqlx/macro.query_as.html) (and several others) are checked. If you see [QueryBuilder](https://docs.rs/sqlx/latest/sqlx/struct.QueryBuilder.html) being used, that query is not checked. Check the documentation for other functions and macros.
 
@@ -82,11 +78,9 @@ Perhaps we need to update or fetch data for existing users, based on when they w
 
 Additionally, these queries may be quite large, and indeed you may want to write the query just once, even if it has variations.
 
-## Unchecked queries - don't try this at home
-
 One may be tempted to write unchecked queries just for convenience. Let's take a brief look at what not to do.
 
-### Quick and dirty SQL string
+## Quick and dirty SQL string
 
 The quick and dirty approach is to write the SQL query as a separate &str. Maybe like this
 
@@ -103,7 +97,7 @@ let res = sqlx::query(query).fetch_all(&pool).await; // Unchecked query
 
 The resulting query is unchecked, because this query is built dynamically. Hence there are no guarantees on its correctness.
 
-### Parameterized query
+## Parameterized query
 
 A parameterized query seems more evolved, and curiously enough some [LLMs](https://en.wikipedia.org/wiki/Large_language_model) recommend this pattern.
 
@@ -126,7 +120,7 @@ Binding parameters feels kind of smart too. However, I would not recommend this 
 
 This is the heart of the matter, how to make these queries checked. Conditional compilation is one alternative, and using an optional parameter another. Let's review these alternatives.
 
-### Conditional compilation works, but is repetitive
+## Conditional compilation works, but is repetitive
 
 ```rust
 // This is checked, but not DRY
@@ -145,11 +139,12 @@ This query is checked, so it is definitely better than sprinkling the codebase w
 
 What would be a better alternative? Well, we can use what I like to call "Option pattern". It will be easier to manage, especially when the queries grow in size.
 
-### Option pattern to the rescue
+## Option pattern to the rescue
 
 Let's take our good old `SELECT id FROM users` query. Let's also have more variation, so we can see firsthand how nicely we can compose queries with the Option pattern. Specifically, we will add optional date parameters to the mix, that allow us to search for users that were last updated before a date, or after it, or without date restrictions. We also add the option to limit the query to just guest users, or only to the registered users (not guests), if that parameter is passed.
 
 ```rust
+// Postgres version
 let ids = sqlx::query_as!(
     Uuid,
     "SELECT id FROM users \
@@ -166,7 +161,7 @@ let ids = sqlx::query_as!(
  
 Pretty neat! A checked query, that supports different variants. As `None` evaluates to `NULL`, we conveniently omit the condition for that parameter, when the `Option` is `None`. Postgres requires explicit type casting in this case, which is why we use the `::` type cast operator, as seen above.
 
-The same idea should work with MySQL as well, adjusting the syntax slightly. MySQL uses ? as parameter placeholder markers, so the query would look like so. The casts are explicit, unlike in Postgres.
+The same idea should work with MySQL as well, adjusting the syntax slightly. MySQL uses ? as parameter placeholder markers, so the query would look like so. The casts are implicit, unlike in Postgres.
 
 ```sql
 // MySQL version
@@ -220,7 +215,7 @@ let records = sqlx::query!("SELECT name, email, created_at \
 
 And there, we have a checked query! Here are some [further reflections](https://stackoverflow.com/questions/34627026/in-vs-any-operator-in-postgresql/34627688#34627688) on the rather subtle difference between IN and ANY.
 
-### Final thoughts
+## Final thoughts
 
 I believe that with these two tools in our toolkit, there should be no need to write an unchecked SQLx query, ever.
 
