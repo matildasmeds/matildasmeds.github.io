@@ -3,13 +3,15 @@ title = 'No More Unchecked Sqlx Queries'
 date = 2024-09-02T22:20:00+02:00
 +++
 
+This post is intended SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. More specifically, we look into practical ways how to make any SQLx queries checked.
+
 The Rust compiler can catch many mistakes, preventing bugs from happening at the runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
 
 As this high level of robustness comes from compile time checks, Rust feels comparatively a bit more brittle at the edges. There may be limitations to compiler checks, when dealing with external data sources like databases and JSON from third party APIs.
 
 With this post, I hope to offer a useful reference, for how to avoid writing unchecked queries in the first place, and of course, how to refactor existing unchecked queries into checked ones. Different flavours of unchecked and checked queries alike are presented, so that the reader can see the practical differences, and keep refining their craft.
 
-First we look into what are the differences between a checked and an unchecked queries, and the reasons to prefer checked queries. Then we cover two cases where we might feel tempted to write an unchecked query, but fortunately, won't have to.
+First we look into what are the differences between a checked and an unchecked queries, and the reasons to prefer checked queries. Then we cover two cases where we might feel tempted to write an unchecked query, but fortunately, won't have to. Most examples are written for Postgres, but can be applied to other relational databases as well. I’ve added one example for MySQL in that vein.
 
 ## What are checked SQLx queries?
 
