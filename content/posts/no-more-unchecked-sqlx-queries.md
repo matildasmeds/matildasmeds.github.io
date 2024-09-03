@@ -3,7 +3,7 @@ title = 'No More Unchecked Sqlx Queries'
 date = 2024-09-02T22:20:00+02:00
 +++
 
-This post is intended SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. More specifically, we look into practical ways how to make any SQLx queries checked.
+This post is intended SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. More specifically, we look into practical ways how to make any SQLx query checked.
 
 The Rust compiler can catch many mistakes, preventing bugs from happening at the runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
 
