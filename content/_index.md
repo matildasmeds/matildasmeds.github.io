@@ -41,8 +41,6 @@ These are some of my user accounts online.
 - [GitHub](https://github.com/matildasmeds/)
 -- Some toy projects, and some OSS contributions too.
 - [StackOverflow](https://stackoverflow.com/users/3994927/matilda-smeds) -- Even in the current age SO is still a great resource. I have had good experiences both asking questions and answering other people's questions.
-- [Twitter](https://twitter.com/MatildaSmeds)
--- Dormant account. DMs are open and read every now and then.
 
 Write me at first_name.last_name@protonmail.com.
 I would love to hear from you.
