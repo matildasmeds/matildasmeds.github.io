@@ -3,9 +3,9 @@ title = 'No More Unchecked Sqlx Queries'
 date = 2024-09-02T22:20:00+02:00
 +++
 
-This post is intended SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. More specifically, we look into practical ways how to make any SQLx query checked.
+This post is intended for SQLx users, who want to take advantage of the powerful compile time checks SQLx crate provides. More specifically, we look into practical ways how to make any SQLx query checked.
 
-The Rust compiler can catch many mistakes, preventing bugs from happening at the runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
+The Rust compiler can catch many mistakes, preventing bugs from happening at runtime. This makes Rust a very robust language to work with. If I compare working with Rust with any of my previous projects, I do see less regressions in general.
 
 As this high level of robustness comes from compile time checks, Rust feels comparatively a bit more brittle at the edges. There may be limitations to compiler checks, when dealing with external data sources like databases and JSON from third party APIs.
 
@@ -17,7 +17,7 @@ First we look into what are the differences between a checked and an unchecked q
 
 [SQLx](https://docs.rs/sqlx/latest/sqlx/index.html) is a popular and full-fledged crate for interacting with relational databases. It supports PostgreSQL, MySQL and SQLite. While there are several other crates available, SQLx is a pretty safe pick, unless you want support for [ORMs](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which SQLx does not provide. In that case you may want to look into [diesel](https://docs.rs/diesel/latest/diesel/).
 
-One of my favorite things about SQLx are the compilation time checks. SQLx crate provides quite nice checks for our queries, if we only use that feature.
+One of my favorite things about SQLx are the compile-time checks, because they really help to make the application more robust. We just need to use them!
 
 ## Checked query vs. unchecked query
 
