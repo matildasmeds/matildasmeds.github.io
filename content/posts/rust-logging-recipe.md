@@ -4,29 +4,30 @@ date = 2024-04-11T21:15:09+02:00
 draft = false
 +++
 
-**In this article I share my go-to recipe for logging server side Rust. We also discuss logging and what makes it useful.**
+In this post I show one way of instrumenting your backend code, using the [tracing crate](https://docs.rs/tracing/latest/tracing/) from the [tokio ecosystem](https://tokio.rs/). We also discuss logging and what makes it useful. This post would be most useful to the reader who might already be logging, but is not yet using [tracing::instrument](https://docs.rs/tracing/latest/tracing/attr.instrument.html) attribute macro.
 
 ## What is logging?
 
-Logs are messages emitted by your program that can be viewed simultaneously or after the fact. In a sense the program tells its story in the log lines emitted. Whether there are errors, warnings, general information, debugging information, all this can be expressed as logs. Logging can be considered a key pillar in any Observability stack, alongside with metrics and traces.
+Logs are messages emitted by your program that are used for debugging and alerting purposes. In a sense the program tells its story in the log lines emitted. Whether there are errors, warnings, general information, debugging information, all this can be expressed as logs. Logging can be considered a key pillar in any Observability stack, alongside with metrics and traces.
 
 Here's a succinct [definition](https://www.baeldung.com/cs/trace-vs-log) by Amanda Viescinski:
 
-> **A log is a time-stamped record of discrete events that have occurred over time in a system.** Therefore, a log provides an ordered history of the occurrence of events in a system.
+> A log is a time-stamped record of discrete events that have occurred over time in a system. Therefore, a log provides an ordered history of the occurrence of events in a system.
 
 ### Easy retrieval is necessary for logs to be useful
 
-To be useful in real life though, you need to be able to find and group relevant log lines easily. In practice, this means retrieval by relevant identifiers and spans. Without easy retrieval logging is much less useful, as anyone who has been there can testify. We will discuss identifiers and spans in a glimpse of an eye.
+To be useful in real life, you need to be able to find and group relevant log lines easily. In practice, this means using relevant identifiers and spans. Without easy retrieval logging is much less useful, as anyone who has been there can testify. We will discuss identifiers and spans in a moment.
 
-Eventually, to be able to view and search logs in production, you need to send them to a log management system. That is beyond the scope of this article. We will discuss how to make your logs useful, and how to do that in async Rust, using tokio, tracing and tracing-subscriber crates.
+Eventually, to be able to view and search logs in production, you need to send them to a log management system. That is beyond the scope of this article. We will discuss how to make your logs useful, and how to do that in async Rust, using tokio, tracing and [tracing-subscriber](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/) crates.
 
-### Use relevant identifiers to filter log lines
+### Relevant identifiers to filter log lines
 
 Identifiers link the log line to a particular user, organization, resource.
 
-Let's think about the typical scenarios when one needs to dig into the logs. More often than not, a particular user has encountered an issue while using the application. Now, ideally, we should be able to pull all the log lines for that user to start hunting for clues. That is why I think the most important identifier in logging is generally the user_id. 
+Let's think about the typical scenarios when one needs to dig into the logs. More often than not, a particular user has encountered an issue while using the application. Ideally, we should be able to pull all the log lines for that user to start hunting for clues. That is why I think the most important identifier in logging is generally the user_id. 
 
 When we search logs with the user_id (or similar), we find the answer to the question, what are all the things that have happened to this user. With a bit of luck we will see an error that gives enough hints to resolve the issue.
+
 ### Unit of work
 
 In backend development, a natural unit of work is a request made to our own server. There could be smaller units of work that one might want to track separately, for instance a particular method that validates order items on a purchase order, or larger ones, comprising several requests, such as completing different steps when signing up for a service.
@@ -94,7 +95,7 @@ Let's assume an implementation for a game of TicTacToe, and a method called proc
 struct TicTacToe {}
 
 impl TicTacToe {
-  #[tracing::instrument(name = "TicTacToe::process_turn", skip_all, fields(match_id = match_id.to_string(), player_id = player_id.to_string()))]
+  #[tracing::instrument(name = "TicTacToe::process_turn", skip_all, fields(match_id = %match_id, player_id = %player_id))]
   pub async fn process_turn(&self, match_id: &MatchId, player_id: &PlayerId, turn: &PlayerTurn) -> Result<UpdatedBoard, Error> {
     // validate parameters, update match, etc
     // emit relevant log lines, for instance
